@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<!--<meta name="viewport" content="width=1024,height=768" />-->
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="Keywords" lang="fr" content="solitaire,klondike,warpklondike,solitairehd,javascript,js,warpdesign,css3,transitions,html5,webkit,mozilla,iphone,ipad" />
+	<meta name="Author" lang="fr" content="Nicolas Ramz" />
+ 
+	<meta name="Identifier-URL" content="http://www.warpdesign.fr/" /> 
+	<meta name="Publisher" content="WarpDesign" /> 
+	<meta name="Copyright" content="(c) 2008 Nicolas Ramz" />
+	<meta name="description" content="HTML5/CSS3 card game playable from iPad or your desktop browser" />
+ 
+	<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" /> 
+	
+	<title>Solitaire HD by Warpdesign</title>
+	
+	<link rel="stylesheet" href="css/main.css" type="text/css" />
+	<link rel="stylesheet" href="css/jquery.gritter.css" type="text/css" />
+	<link rel="stylesheet" href="css/transitions.css" type="text/css" />
+
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery.gritter.min.js"></script>
+	<script type="text/javascript" src="js/Lawnchair.js"></script>
+	<script type="text/javascript" src="js/adaptors/LawnchairAdaptorHelpers.js"></script>
+	<script type="text/javascript" src="js/adaptors/DOMStorageAdaptor.js"></script>
+
+    <script type="text/javascript" src="js/solitairehd.min.js"></script>
+	<script type="text/javascript">
+		$(function() { WarpKlondikeMain.init() });
+	</script>
+	<link href='http://fonts.googleapis.com/css?family=La+Belle+Aurore&v1' rel='stylesheet' type='text/css'>
+</head>
+<body class="hd">
+	<div class="description">
+	<h2>The HTML5/CSS3 card game</h2> 
+	<ul> 
+		<li>Optimized for sofa play on the iPad!</li> 
+		<li>CSS3-enhanced (degrades nicely on other browsers)</li> 
+		<li>Nice graphics</li> 
+	</ul> 
+	</div>
+	<div id="pause">
+		<p>Pause</p>
+	</div>
+
+	<div id="playground" class="light">
+		<!-- overlay Pause element -->
+	</div>
+
+	<form id="options" class="dialog">
+		<fieldset>
+			<!-- <div class="check" id="sound">sound</div> -->
+			<div class="check" id="autoFlip">autoFlip</div>
+			<div class="check" id="autoPlay">autoPlay</div>
+			<ul id="themeList">
+				<li>
+					<a href="#" class="themeSelect"><img src="css/themes/fantasy/preview.png" alt="fantasy" /></a><br />
+					Fantasy
+				</li>
+				<!--
+				<li>
+					<a href="#" class="themeSelect"><img src="css/themes/jerico/preview.png" alt="jerico" /></a><br />
+					Jerico
+				</li>
+				-->
+			</ul>
+		<div class="ok"></div>
+		</fieldset>
+	</form>
+
+	<div id="scores" class="dialog">
+		<ul></ul>
+		<div class="ok"></div>
+	</div>
+
+	<div id="youWon" class="dialog">
+		<div class="contents">
+			<strong>Score: </strong><span class="score">328</span>
+			<p><u>Enter your name</u></p>
+			<form>
+				<input type="text" name="userName" id="userName" width="20" />
+			</form>
+			<br />
+			<div class="check checked" id="tweetScore">Tweet score</div>
+			<div style="margin-top:15px;" class="ok"></div>
+		</div>
+	</div>
+
+	<div id="statusPanel">
+		<div class="score">0 Points</div><div class="time">00 : 00</div><div class="startAgain">Restart</div>
+	</div>
+
+	<div id="optionsPanel">
+		<!-- <button class="icon home" id="gotoHome">Home</button> -->
+		<button class="icon options" id="menuToggle">Options</button>
+		<button class="icon scores" id="showScores">Scores</button>
+		<div style="position:absolute;width:214px;height:21px;z-index:2;right:0;top:4px;">
+			<a href="http://twitter.com/share" class="twitter-share-button" data-text="I enjoyed playing SolitaireHD, nice #HTML5 game by @warpdesign_ :) → " data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+			<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.warpdesign.fr%2Fsolitairehd&amp;layout=button_count&amp;show_faces=true&amp;width=90&amp;action=like&amp;font=arial&amp;colorscheme=dark&amp;height=21" scrolling="no" frameborder="0" style="display:inline-block; border:none; overflow:hidden; width:90px; height:21px;"></iframe>
+		</div>
+	</div>
+
+	<div id="shadow"></div>
+	<div id="splash"><div class="content"></div></div>
+	<script type="text/javascript"> 
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script> 
+			
+		<script type="text/javascript"> 
+			try 
+			{
+				var pageTracker = _gat._getTracker("UA-7328965-1");
+				pageTracker._trackPageview();
+			} 
+			catch(err) {}
+		</script> 
+</body>
+</html>

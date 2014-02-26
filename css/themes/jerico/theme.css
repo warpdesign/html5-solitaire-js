@@ -1,0 +1,75 @@
+body
+{
+    background:url('img/back-pattern.jpg');
+}
+
+.hd #playground {
+    background:none;
+}
+
+.hd .light .card, .hd .light .pack, .hd .light .pack, .hd .light .waste 
+{
+    background-image:url('img/sprites.png');
+}
+
+#optionsPanel,
+.light #optionsPanel
+{
+    background:url('img/opacity3.png') repeat;
+    -moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	-o-border-raduis:10px;
+	border-radius:10px;
+    padding:0px 10px 3px 10px;
+}
+
+#playground .icon
+{
+	opacity:.6;
+	background:transparent url(../../../img/hd/icons/options.png) center no-repeat;
+}
+
+#playground .icon.scores{
+	background-image:url(../../../img/hd/icons/scores.png);
+}
+
+#scores {
+	background:url('img/panel-score.png') 0 20px no-repeat;
+}
+
+#options {
+	background:url('img/panel-options.png') 0 0 no-repeat;
+	width:430px;
+	height:490px;
+	left:310px;
+	top:100px;
+}
+
+#options fieldset{
+	margin:100px 0 0 50px;
+}
+
+
+#options h1{
+	display:none;
+}
+
+.ok {
+	background:url('img/button-ok.png') no-repeat;
+	height:100px;
+}
+
+#scores ul li {
+	margin-left:20px;
+	margin-right:90px;
+}
+
+#scores ul li span.rank {
+	width:103px;
+}
+
+fieldset li.selected a img
+{
+	box-shadow:1px 1px 8px #e21717;
+	-moz-box-shadow:1px 1px 8px #e21717;
+}

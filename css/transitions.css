@@ -1,0 +1,210 @@
+/* TODO: special design for the pack card */
+.card, .pack, .waste{
+	-webkit-transition-property:top, left, opacity, margin, -webkit-transform, -webkit-box-shadow;
+	-webkit-transition-duration: .3s;
+	-webkit-transform:scale(1.0);
+
+	-moz-transition-property:top, left, opacity, -moz-box-shadow;
+	-moz-transition-duration: .3s;
+	-moz-transform:scale(1.0);
+	
+	-o-transition-property:top, left, opacity, box-shadow;
+	-o-transition-duration: .3s;
+	-o-transform:scale(1.0);
+}
+
+@-webkit-keyframes 'zoomIn' 
+{
+	0%{
+		opacity:0;
+		-webkit-transform: scale(0.8);
+	}
+	100%{
+		opacity:1;
+		-webkit-transform: scale(1.0);
+	}
+}
+
+@-moz-keyframes 'zoomIn' 
+{
+	0%{
+		opacity:0;
+		-moz-transform: scale(1.0);
+	}
+	25%{
+		opacity:1;
+	}
+	100%{
+		opacity:0;
+		bottom:20px;
+		-moz-transform: scale(3.0);
+	}
+}
+
+@-o-keyframes 'zoomIn' 
+{
+	0%{
+		opacity:0;
+		-o-transform: scale(1.0);
+	}
+	25%{
+		opacity:1;
+	}
+	100%{
+		opacity:0;
+		bottom:20px;
+		-o-transform: scale(3.0);
+	}
+}
+
+@-webkit-keyframes 'rotate' 
+{
+	0%{
+		-webkit-transform: rotateY(0deg) scale(1.0);
+	}
+	50%{
+		-webkit-transform: rotateY(90deg) scale(1.2);
+	}
+	100%{
+		-webkit-transform: rotateY(180deg) scale(1.0);
+	}
+}
+
+@-moz-keyframes 'rotate' 
+{
+	0%{
+		-moz-transform: rotateY(0deg);
+	}
+	50%{
+		-moz-transform: rotateY(90deg) scale(1.2);
+	}
+	100%{
+		-moz-transform: rotateY(180deg) scale(1.0);
+	}
+}
+
+@-o-keyframes 'rotate' 
+{
+	0%{
+		-o-transform: rotateY(0deg);
+	}
+	50%{
+		-o-transform: rotateY(90deg) scale(1.0);
+	}
+	100%{
+		-o-transform: rotateY(180deg) scale(1.2);
+	}
+}
+
+#playground .card{
+	-webkit-transform-style: preserve-3d;
+	/* guess that's not supported by gecko/presto but this may appear in the future */
+	/*
+	-moz-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	*/
+}
+
+#playground{
+	-webkit-perspective: 1000;
+	/* guess that's not supported by gecko/presto but this may appear in the future */
+	-moz-perspective: 1000;
+	-o-perspective: 1000;
+}
+
+#playground .card.rotate{
+	-webkit-animation: rotate .25s ease-in;
+	-moz-animation: rotate .25s ease-in;
+	-o-animation: rotate .25s ease-in;
+}
+
+.scoreEvol.shown{
+	-webkit-animation: zoomIn .4s ease-in;
+	-moz-animation: zoomIn .4s ease-in;
+	-o-animation: zoomIn .4s ease-in;
+}
+
+.card.selected{
+	-webkit-transition-property:margin, -webkit-transform;
+	-webkit-transition-duration:300ms;
+	-webkit-transform:scale(1.2);
+	-webkit-animation: throwAway 300ms ease-in;
+
+	-moz-transition-property:margin, -moz-transform;
+	-moz-transition-duration:300ms;
+	-moz-transform:scale(1.2);
+	-moz-animation: throwAway 300ms ease-in;
+
+	-o-transition-property:margin, -o-transform;
+	-o-transition-duration:300ms;
+	-o-transform:scale(1.2);
+	-o-animation: throwAway 300ms ease-in;
+	/*
+	-webkit-border-radius:6px;
+	-webkit-box-shadow:0px 2px 4px #000;
+	*/
+	/*margin-top:10px;*/
+}
+
+.card.dragged{
+	-webkit-transition-property:none;
+	-moz-transition-property:none;
+	-o-transition-property:none;
+}
+
+.icon{
+	-webkit-transition-property: opacity, margin, color;
+	-webkit-transition-duration: .4s;
+
+	-moz-transition-property: opacity, margin, color;
+	-moz-transition-duration: .4s;
+
+	-o-transition-property: opacity, margin, color;
+	-o-transition-duration: .4s;
+}
+
+#debugConsole{
+	-webkit-transition-property: opacity, height, top, bottom;
+	-webkit-transition-duration: .6s;
+
+	-moz-transition-property: opacity, height, top, bottom;
+	-moz-transition-duration: .6s;
+
+	-o-transition-property: opacity, height, top, bottom;
+	-o-transition-duration: .6s;
+}
+
+#playground{
+	-webkit-perspective:800px;
+}
+
+#options, #scores, #youWon{
+	-webkit-transition-property:opacity, -webkit-transform;
+	margin:auto;
+	margin-top:100px;
+	/*
+	-webkit-transition-duration: .8s;
+	-webkit-transform: rotateY(90deg);
+	-webkit-transform-origin:top center;
+	*/
+}
+
+#options.flipped, #scores.flipped, #youWon.flipped{
+	display:block;
+	-webkit-animation: zoomIn 300ms ease-in;
+	opacity:1;
+}
+
+/*
+#playground #options, #playground #scores{
+	-webkit-transition-property:opacity, -webkit-transform;
+	-webkit-transition-duration: .8s;
+	-webkit-transform: rotateY(90deg);
+	-webkit-transform-origin:top center;
+}
+
+#playground #options.flipped, #playground #scores.flipped{
+	-webkit-transform: rotateY(0);
+	opacity:1;
+}
+*/

@@ -1,0 +1,124 @@
+body{
+	background:transparent url(img/bgPage.jpg);
+}
+
+.hd #playground {
+	/* background-image:url(img/backgroundTable.png); */
+	background-color:transparent;
+}
+
+.hd .light .card, .hd .light .pack, .hd .light .pack, .hd .light .waste
+{
+	background-image:url(img/sprites.png);
+}
+
+/* TODO: use gradients ! */
+#statusPanel
+{
+	background:transparent url("img/overlay.png") repeat-x;
+}
+
+#optionsPanel
+{
+	background:transparent url("img/overlayInvert.png") repeat-x;
+}
+
+.icon
+{
+	background:transparent url(img/icons/options.png) center no-repeat;
+	font-size:20px;
+}
+
+.icon.scores{
+	background-image:url(img/icons/scores.png);
+}
+
+.icon.home{
+	background-image:url(img/icons/home.png);
+}
+
+#scores, #youWon{
+	position:absolute;
+	width:724px;
+	height:506px;
+	left:148px;
+	top:0px;
+	background:transparent url(img/scores.png) center no-repeat;
+	color:black;
+}
+
+#youWon{
+	background-image:url(img/youWon.png);
+	width: 268px;
+	height: 381px;
+}
+
+#youWon .contents{
+	margin:30px;
+	margin-top:122px;
+	text-align:center;
+}
+
+#youWon .contents p{
+	text-align:center;
+	margin-bottom:10px;
+}
+
+#options {
+	width:268px;
+	height:381px;
+	background:transparent url(img/optionsBack2.png) no-repeat;
+	position:absolute;
+	left:380px;
+	top:50px;
+}
+
+#options fieldset{
+	margin:0 20px;
+	border:none;
+	margin-top:85px;
+}
+
+.check{
+	background:transparent url(img/check.png) center left no-repeat;
+	padding:8px 30px;
+	cursor:pointer;
+	text-align:left;
+}
+
+.check.checked{
+	background-image:url(img/checkChecked.png);
+}
+
+.ok {
+	height:27px;
+	background:transparent url(img/okBt.png) center no-repeat;
+	cursor:pointer;
+}
+
+#scores ul li {
+	margin:0 60px 10px 40px;
+}
+
+#scores ul li span.rank {
+	width:120px;
+}
+
+fieldset li.selected a img{
+
+	box-shadow:1px 1px 8px #333333;
+	-moz-box-shadow:1px 1px 8px #333333;
+}
+
+#shadow{
+	position:absolute;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	/*background-color:black;*/
+	/*opacity:.6;*/
+	background: -webkit-radial-gradient(rgba(7, 7, 7, 0.8), rgba(7, 7, 7, 0.5) 35%, rgba(0, 0, 0, 0.7));
+	display:none;
+	z-index:100;
+}

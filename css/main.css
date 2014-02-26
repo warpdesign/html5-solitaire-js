@@ -1,0 +1,524 @@
+body,html
+{
+	font-family:"La Belle Aurore", arial, serif;
+	font-size:18px;	
+	line-height:18px;
+	padding:0;
+	margin:0;
+	height:100%;
+	overflow:hidden;
+	background-color:black;
+}
+
+button{
+	font-family:"La Belle Aurore", arial, serif;
+}
+
+div{
+	padding:0;
+	margin:0;
+}
+
+.visible{
+	display:block;
+}
+
+/* TODO: special design for the pack card */
+.card, .pack, .waste{
+	position:absolute;
+	width:54px;
+	height:68px;
+	background-repeat:no-repeat;
+	background-color:transparent;
+	z-index:2;
+	margin-top:0;
+	display:none;
+}
+
+.waste{
+	cursor:pointer;
+}
+
+.waste.full{
+	-webkit-box-shadow: 4px 6px 34px #000000;
+}
+
+.waste.half{
+	-webkit-box-shadow: 3px 5px 12px #000000;
+}
+
+.waste.less{
+	-webkit-box-shadow: 0px 0px 12px #000000;
+}
+
+.waste.empty{
+	-webkit-box-shadow: none;
+}
+
+.visible{
+	display:block;
+}
+
+.default .card, .default .pack{
+	background-image:url(../img/sprites.png);
+}
+
+.light .card, .light .pack{
+	background-image:url(../img/spritesGuillaume.png);
+}
+
+.aceHeart, .ace0{
+	background-position: -93px -441px;
+	top:26px;
+	left:182px;
+}
+
+.aceDiamond, .ace1{
+	background-position: -157px -280px;
+	top:26px;
+	left:248px;
+}
+
+.aceClub, .ace2{
+	background-position: -212px -280px;
+	top:26px;
+	left:372px;
+}
+
+.aceSpade, .ace3{
+	background-position: -267px -280px;
+	top:26px;
+	left:310px;
+}
+
+/* HD */
+.hd .aceHeart, .hd .ace0{
+	background-position: -135px -441px;
+	top:26px;
+	left:347px;
+}
+
+.hd .aceDiamond, .hd .ace1{
+	background-position: -224px -441px;
+	top:26px;
+	left:480px;
+}
+
+.hd .aceClub, .hd .ace2{
+	background-position: -313px -441px;
+	top:26px;
+	left:742px;
+}
+
+.hd .aceSpade, .hd .ace3{
+	background-position: -402px -441px;
+	top:26px;
+	left:611px;
+}
+
+/* Position of the main stack */
+.returnedCard{
+	background-position:-47px -280px;
+	top:26px;
+	left:47px;
+}
+
+.hd .returnedCard{
+	background-position:-47px -441px;
+}
+
+.returnedCard.empty{
+	background-position:-432px -280px;
+}
+
+.hd .returnedCard.empty{
+	background-position:-576px -440px;
+}
+
+.king{
+	background-position:-322px -280px;
+	top:112px;
+	left:47px;
+}
+
+.hd .king{
+	background-position:-663px -440px;
+	top:169px;
+}
+
+.hd .king:nth-child(1){
+	left:47px;
+}
+
+.hd .king:nth-child(2){
+	left:147px;
+}
+
+.hd .king:nth-child(3){
+	left:247px;
+}
+
+.hd .king:nth-child(4){
+	left:347px;
+}
+
+.hd .king:nth-child(5){
+	left:447px;
+}
+
+.hd .king:nth-child(6){
+	left:547px;
+}
+
+.hd .king:nth-child(7){
+	left:647px;
+}
+
+#playground{
+	width:480px;
+	height:320px;
+	/* background:black url(../img/backGame.png) no-repeat;*/
+	background-color:black;
+	background-repeat:no-repeat;
+	position:relative;
+	margin:auto;
+	/*overflow-y:hidden;*/
+}
+
+.hd #playground{
+	width:1024px;
+	height:100%;
+	background-position:0 -10px;
+}
+
+#selectedCard{
+	width:55px;
+	height:71px;
+	position:absolute;
+	background:transparent url(../img/select_blue.png) no-repeat;
+	display:none;
+}
+
+#statusPanel, #optionsPanel{
+	position:absolute;
+	bottom:0;
+	left:0;
+	width:100%;
+	font-size:20px;
+	font-weight:bold;
+	height:42px;
+	display:none;
+	line-height:15px;
+	color:#fbfbfb;
+	text-align:center;
+	z-index:44;
+}
+
+#optionsPanel{
+	top:0;
+	left:0;
+	height:60px;
+	text-align:left;
+}
+
+.light #statusPanel{
+	background-image:url(../img/overlay.png);
+}
+
+#statusPanel .score{
+	margin-top:18px;
+	background:transparent url(../img/icon_star.png) no-repeat;
+	padding-left:24px;	
+	float:left;
+	width:33%;
+	text-align:left;
+	font-weight:bold;
+}
+
+.scoreEvol{
+	opacity:0;
+	position:absolute;
+	bottom:5px;
+	left:0;
+	background:transparent url(../img/icon_star.png) no-repeat;
+	padding-left:24px;
+	width:50px;
+	z-index:50;
+	color:white;
+}
+
+.scoreEvol.minus{
+	color:#ddd;
+}
+
+#statusPanel .time{
+	margin-top:18px;
+	background:transparent url(../img/icon_clock.png) no-repeat;
+	padding-left:24px;
+	display:inline-block;
+	width:76px;
+	text-align:left;
+}
+
+#statusPanel .startAgain{
+	margin-top:18px;
+	float:right;
+	height:15px;
+	padding-right:34px;
+	background:transparent url(../img/icon_start_again.png) no-repeat right center;
+	cursor:pointer;
+	text-align:right;
+}
+
+#statusPanel .undo{
+	margin-top:18px;
+	float:right;
+	height:15px;
+	padding-right:34px;
+	cursor:pointer;
+	text-align:right;
+}
+
+#playground .smiley{
+	position:absolute;
+	z-index:10;
+	width:50px;
+	height:42px;
+	right:-50px;
+	background:transparent url(../img/wakeupIcon.png) no-repeat;
+	display:none;
+}
+
+#playground .menuToggle{
+	right:-10px;
+	top:-5px;
+	position:absolute;
+	z-index:10;
+	background:transparent url(../img/plus.png) no-repeat;
+	width:31px;
+	height:30px;
+	cursor:pointer;
+}
+
+/*** HD stuf ***/
+.hd .light .card, .hd .light .pack, .hd .light .pack, .hd .light .waste{
+	width:86px;
+	height:106px;
+	left:140px;
+	top:66px;
+}	
+/*** /HD ***/
+
+.particle1, .particle2, .particle3{
+	background:url(../img/particles/etoile1.png) no-repeat scroll 0 0 transparent;
+	height:16px;
+	position:absolute;
+	width:16px;
+}
+
+.particle2{
+	background:url(../img/particles/etoile2.png)
+}
+
+.particle3{
+	background:url(../img/particles/etoile3.png)
+}
+
+body, .card{
+	-moz-user-select: none; /* mozilla browsers */
+	-khtml-user-select: none;
+}
+
+form#options{
+	color:black;
+	position:absolute;
+	z-index:1700;
+	opacity:0;
+	display:none;
+}
+
+#scores, #youWon{
+	position:absolute;
+	z-index:1700;
+	opacity:0;
+	display:none;
+	color:black;
+}
+
+form#options h1{
+	text-align:center;
+	padding-bottom:4px;
+	font-size:70px;
+	margin-top:30px;
+	margin-bottom:40px;
+	font-weight:normal;
+}
+
+fieldset{
+	margin:0 20px;
+	border:none;
+}
+
+#pause{
+	position:relative;
+	z-index:3000;
+	background-color:black;
+	opacity:.8;
+	width:100%;
+	height:100%;
+	color:white;
+	border:1px solid transparent;
+	display:none;
+}
+
+#pause p{
+	font-size:100px;
+	text-align:center;
+	margin-top:350px;
+}
+
+#playground #scores{
+	opacity:0;
+	display:none;
+	position:absolute;
+	width:724px;
+	height:506px;
+	left:148px;
+	top:80px;
+	z-index:1800;
+	font-size:20px;
+}
+
+#playground .ok{
+	margin:20px auto;
+	width:142px;
+	cursor:pointer;
+}
+
+#scores ul{
+	margin-top:180px;
+	list-style-type:none;
+}
+
+#scores ul li{
+	margin:0 60px 10px 40px;
+	clear:left;
+	height:40px;
+}
+
+#scores ul li span.rank{
+	float:left;
+	display:block;
+	width:120px;
+}
+
+#scores ul li span.nick{
+	float:left;
+}
+
+#scores ul li span.score{
+	float:right;
+}
+
+.icon{
+	width:70px;
+	margin:-10px 10px 0 10px;
+	position:absolute;
+	z-index:2;
+	top:0;
+	font-weight:bold;
+	padding-top:60px;
+	border:none;
+	text-align:center;
+	font-size:11px;
+	text-shadow:0px 1px 4px #000;
+	text-indent:-1000px;
+	opacity:.4;
+}
+
+.icon.options{
+	left:0;
+}
+
+.icon.scores{
+	left:80px;
+}
+
+.icon.over{
+	opacity:1;
+	margin-top:0px;
+	color:white;
+	cursor:pointer;
+	text-indent:0;
+}
+
+#debugConsole{
+	font-family:Arial, Helvetica, serif;
+	position: absolute;
+	border: 1px dotted #999;
+	height: 30px;
+	width: 90%;
+	bottom: 0;
+	left: 10px;
+	font-size: 14px;
+	opacity: .7;
+	background-color: black;
+	color: white;
+	padding: 2px;
+	z-index:9999;
+	overflow:auto;
+	padding:6px 10px 6px 18px;
+}
+
+fieldset ul{
+	text-align:left;
+	padding:0;
+}
+	
+fieldset li{
+	text-align:center;
+	list-style-type:none;
+	display:inline-block;
+	width:110px;
+	margin:0 10px;
+	font-style:italic;
+	cursor:pointer;
+	margin:0 2px;
+}
+
+fieldset li.selected{
+	font-weight:bold;
+	font-size:120%;
+}
+
+fieldset li a img{
+	border:none;
+}
+
+#splash{
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:20000;
+	width:100%;
+	height:100%;
+	background-color:black;
+}
+
+#splash .content{
+	width:100%;
+	height:100%;
+	background:black url(../img/hd/warpdesignSplash.png) center center no-repeat;
+	-webkit-transition-property: opacity;
+	-webkit-transition-duration:1s;
+	opacity:0;
+}
+
+#tweet-button.tb-container{
+	display:inline-block;
+}
+
+.description{
+	z-index: -1;
+	position: absolute;
+}
