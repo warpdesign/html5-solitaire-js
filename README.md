@@ -1,7 +1,7 @@
 solitaire-js
 ============
 
-Solitaire JS is a JS game I originally wrote for a contest organized for the launch of the original webOS Palm Pré launch in France: [SFR Jeunes Talents](http://www.generation-nt.com/sfr-jeunes-talents-concours-palm-webos-actualite-959281.html).
+Solitaire JS is an HTML5 game I originally wrote for a contest organized for the launch of the original webOS Palm Pré launch in France: [SFR Jeunes Talents](http://www.generation-nt.com/sfr-jeunes-talents-concours-palm-webos-actualite-959281.html).
 
 Since the game has been written at least 4/5 years ago, don't expect to see a package.json file, nor any .bowerrc: this is pure JavaScript ;)
 
