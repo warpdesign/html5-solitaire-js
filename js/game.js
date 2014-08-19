@@ -78,7 +78,7 @@ var game = {
 	// Graphics
 	statusPanelElt: null,
 	optionsPanelElt: null,
-	
+
 	timeElt: null,
 	scoreElt: null,
 	stackElt: null,
@@ -178,7 +178,7 @@ var game = {
 		this.bottomDecks = [new Deck(DECK_BOTTOM, 0), new Deck(DECK_BOTTOM, 1), new Deck(DECK_BOTTOM, 2), new Deck(DECK_BOTTOM, 3), new Deck(DECK_BOTTOM, 4), new Deck(DECK_BOTTOM, 5), new Deck(DECK_BOTTOM, 6)];
 
 		var bottomDecks = this.bottomDecks,
-		stockPack = this.stockPack;		
+		stockPack = this.stockPack;
 
 		for (var i = 0, max = bottomDecks.length; i < max; i++)
 			bottomDecks[i].setDeckNum(i);
@@ -211,7 +211,7 @@ var game = {
 				cardtype = 'club';
 			else if (rand < 40)
 				cardtype = 'diamond';
-			
+
 			card = new Card(cardtype, rand);
 			EventsManager.addDroppable(card);
 			EventsManager.addDraggable(card);
@@ -222,7 +222,7 @@ var game = {
 		// 2. Build all decks
 		// TODO: change position of all cards !
 		var turn = 1;
-		
+
 		while (turn <= MAX_CARDS)
 		{
 			for (var i = 0; i < RULES.length; i++)
@@ -244,7 +244,7 @@ var game = {
 					bottomDecks[i].push(card);
 				}
 			}
-			turn++; 
+			turn++;
 		}
 
 		for (var i = 0, max = bottomDecks.length; i < max; i++)
@@ -275,11 +275,11 @@ var game = {
 		// properties reinit
 		this.selectedCard = null;
 		this.multiSelect = 0;
-		
+
 		// jQuery/Graphics reinit
 		jQuery('.card').remove();
 		jQuery('.pack').remove();
-		
+
 		EventsManager.emptyElements();
 		/* /test */
 
@@ -302,7 +302,7 @@ var game = {
 		this.wastePack.fillWith(stateObject.wasteDeck).setPossibleSelections().showCards(this.wastePosX + (this.xSpace + 10), this.wastePosY);
 		this.setWasteShadow();
 
-		// TODO: check that we have the correct order !! 
+		// TODO: check that we have the correct order !!
 		aceDecks[0].fillWith(stateObject.heartDeck).setPossibleSelections().showCards(this.acePosX, this.wastePosY);
 		aceDecks[1].fillWith(stateObject.diamondDeck).setPossibleSelections().showCards(this.acePosX + (this.aceSpace), this.wastePosY);
 		aceDecks[3].fillWith(stateObject.spadeDeck).setPossibleSelections().showCards(this.acePosX + (2 * this.aceSpace), this.wastePosY);
@@ -395,14 +395,14 @@ var game = {
 
 		// TODO: We should display cards found in the wastePack (only useful when resuming a state !!)
 
-		// show Aces (if any: loading a previous stage...)		
+		// show Aces (if any: loading a previous stage...)
 	},
 
 	setupListeners: function()
 	{
 		var that = this,
 			gameStats = this.gameStats;
-		
+
 		// setup buttons: menus,...
 		// TODO: we should of course ask for confirmation
 		// BottomMenu
@@ -413,7 +413,7 @@ var game = {
 			$.gritter.removeAll();
 			return false;
 		});
-		
+
 		// highscore
 		$('#youWon .ok').bind(EventsManager.EVENT_UP, function() {
 			if (that.scorePosition > -1 == true)
@@ -430,7 +430,7 @@ var game = {
 
 			// TODO: send to twitter if needed
 			if ($('#tweetScore').hasClass('checked')) {
-				window.open(CM.twitterURL + encodeURI('I just did the impossible score of #{score} at SolitaireHD by @warpdesign_ :) Do you think you can do better ? ;) → http://past.is/CVB'.replace('#{score}', that.scoreObj.score)), 'I am a winner, and I don\'t use drugs ;)', 'width=550,height=380,top=' + (screen.height-380)/2 + ',left=' + (screen.width-550)/2);
+				window.open(CM.twitterURL + encodeURI('I just did the impossible score of #{score} at SolitaireHD by @warpdesign_ Do you think you can do better ? :) → http://past.is/CVB'.replace('#{score}', that.scoreObj.score)), 'I am a winner, and I don\'t use drugs ;)', 'width=550,height=380,top=' + (screen.height-380)/2 + ',left=' + (screen.width-550)/2);
 			}
 
 			WarpKlondikeMain.setScores(that.scores);
@@ -441,7 +441,7 @@ var game = {
 
 		// Special packs (ie: main pack, kings, and aces)
 		this.stackElt.bind(EventsManager.EVENT_UP, jQuery.proxy(this.nextPackCard, this));
-		
+
 		// window/tab activation events
 		jQuery(window).bind('blur', function() { /*Console.log('blur');*/ that.togglePauseGame(true); });
 		jQuery(window).bind('focus', function() { /*Console.log('focus');*/ that.togglePauseGame(); });
@@ -467,7 +467,7 @@ var game = {
 		// properties reinit
 		this.selectedCard = null;
 		this.multiSelect = 0;
-		
+
 		// TODO: do we reset the score ?
 		this.score = 0;
 		this.highScore = false;
@@ -554,7 +554,7 @@ var game = {
 		if (typeof srcDeckType !== 'undefined')
 		{
 		if (scoreEvolElt.hasClass('shown'))
-			scoreEvolElt.removeClass('shown');			
+			scoreEvolElt.removeClass('shown');
 
 			switch(srcDeckType)
 			{
@@ -586,7 +586,7 @@ var game = {
 			}
 			setTimeout(function() { scoreEvolElt.addClass('shown'); }, 100);
 		}
-		
+
 		this.scoreElt.html(this.score + ' points');
 	},
 
@@ -594,7 +594,7 @@ var game = {
 	{
 		if (this.selectedCard === null || (deckType !== DECK_BOTTOM && this.multiSelect === true))
 			return;
-		
+
 		if (deckType === DECK_BOTTOM)
 			selectedDeck = this.bottomDecks[deckNum];
 		else
@@ -625,7 +625,7 @@ var game = {
 	},
 
 	clickCard: function(card)
-	{	
+	{
 		if (this.blockedSelection === true) // || this.touchMode === true)
 			return;
 
@@ -648,11 +648,11 @@ var game = {
 					card = null; // no more selection...
 				}
 				else
-				{	
+				{
 					card = selectedCard;
 				}
 			}
-			else			
+			else
 			{
 				if (!card.isVisible())
 				{
@@ -664,7 +664,7 @@ var game = {
 					card = null;
 
 					// Console.log('returning card');
-					// Console.log('autoPlay 3'); 
+					// Console.log('autoPlay 3');
 					this.autoPlay();
 				}
 				else if (this.touchMode === false)
@@ -673,7 +673,7 @@ var game = {
 					SoundManager.playSound(SND_CLICK_CARD);
 
 					this.toggleSelectedCard(card);
-					
+
 					if (card.getDeck().getTop() === card)
 						this.multiSelect = false;
 					else
@@ -690,12 +690,12 @@ var game = {
 				SoundManager.playSound(SND_CLICK_CARD);
 				selectedCard.setStatus(ST_UNSELECTED);
 			}
-			
+
 			card.getDeck().toggleSelectionFromCard(card);
 
 			card = null;
 		}
-		
+
 		if (this.touchMode === false)
 			this.selectedCard = card;
 	},
@@ -708,7 +708,7 @@ var game = {
 
 		this.blockedSelection = true;
 
-		// first remove the card from the deck	
+		// first remove the card from the deck
 		var sourceDeck = card.getDeck(),
 		yoffset = 0,
 		pos = {},
@@ -769,7 +769,7 @@ var game = {
 			size = cardsToMove.length,
 			carToMove = null,
 			x = (destinationDeck !== this.wastePack) ? pos.x : (pos.x + this.visibleCardSpace + 12);
-		
+
 		for (var i = 0; i < size; i++)
 		{
 			cardToMove = cardsToMove[i];
@@ -856,7 +856,7 @@ var game = {
 				nextCard.setPosition(totalXSpace + (i * visibleCardSpace), wastePosY, wastePosX, wastePosY);
 			}
 
-			// BLOCKED selection until 
+			// BLOCKED selection until
 			this.blockedSelection = true;
 
 			setTimeout(function() { that.wastePack.setCardsVisibility(true, fromWasteSize); that.blockedSelection = false; that.autoPlay(true); }, 400);
@@ -869,7 +869,7 @@ var game = {
 
 			this.wastePack.getCardsFromDeck(this.stockPack);
 			this.stackElt.addClass('empty');
-			
+
 			// don't forget to return back all cards
 			this.wastePack.setCardsVisibility(true, fromWasteSize);
 		}
@@ -907,7 +907,7 @@ var game = {
 
 		this.blockedPack = true;
 
-		var card = this.stockPack.popMultiple(3);
+		var card = this.stockPack.popMultiple(1);
 
 		// 2. Unselect current selected card if it's from the stack
 		if (selectedCard !== null && (selectedCard.getDeck() === this.wastePack))
@@ -929,9 +929,8 @@ var game = {
 				wastePosX = this.wastePosX,
 				wastePosY = this.wastePosY;
 
-			// test
-			this.wastePack.setAllCardsVisibility(false);
-			// /test
+			// make all cards of the waste invisible ?
+			// this.wastePack.setAllCardsVisibility(false);
 
 			for (i = 0; i < size; i++)
 			{
@@ -944,7 +943,7 @@ var game = {
 			// only enable the selection of the last card, if multiple deal
 			nextCard.enableSelection(true);
 
-			// BLOCKED selection until 
+			// BLOCKED selection until
 			this.blockedSelection = true;
 
 			setTimeout(function() { that.blockedSelection = false; that.autoPlay(true); }, 400);
@@ -958,7 +957,7 @@ var game = {
 
 			this.stockPack.getCardsFromDeck(this.wastePack);
 			this.stackElt.removeClass('empty');
-			
+
 			// don't forget to return back all cards
 			this.stockPack.setAllCardsVisibility(false);
 		}
@@ -1045,7 +1044,7 @@ var game = {
 			{
 				this.wastePack.getCardsFromDeck(this.stockPack);
 				this.stackElt.addClass('empty');
-				
+
 				// don't forget to return back all cards
 				this.stockPack.setAllCardsVisibility(true);
 			}
@@ -1070,7 +1069,7 @@ var game = {
 	{
 		if (!this.gameOptions.autoPlay)
 			return;
-		
+
 		var   found = false,
 		      tempCard = this.wastePack.getTop(),
 		      size = this.bottomDecks.length,
@@ -1092,7 +1091,7 @@ var game = {
 				i++;
 			}
 		}
-		
+
 		if (tempCard && tempCard.isVisible())
 		{
 			if (this.addToAce(tempCard))
@@ -1257,8 +1256,8 @@ var game = {
 
 		// alert('You made it ! (yeah, end game could and definitely *will* be improved ;))');
 		$('.dialog').center();
-		
-		$('#shadow').fadeIn('normal', function() { 
+
+		$('#shadow').fadeIn('normal', function() {
 			$('#youWon').toggleClass('flipped');
 			$('#youWon input').focus();
 		});
