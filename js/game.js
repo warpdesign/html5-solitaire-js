@@ -430,7 +430,7 @@ var game = {
 
 			// TODO: send to twitter if needed
 			if ($('#tweetScore').hasClass('checked')) {
-				window.open(CM.twitterURL + encodeURI('I just did the impossible score of #{score} at SolitaireHD by @warpdesign_ Do you think you can do better ? :) → http://bit.ly/1FYjhbH'.replace('#{score}', that.scoreObj.score)), 'I am a winner, and I don\'t use drugs ;)', 'width=550,height=380,top=' + (screen.height-380)/2 + ',left=' + (screen.width-550)/2);
+				window.open(CM.twitterURL + encodeURIComponent('I just did the impossible score of #{score} at SolitaireHD by @warpdesign_ Do you think you can do better ? :) → http://bit.ly/1FYjhbH'.replace('#{score}', that.scoreObj.score)), 'I am a winner, and I don\'t use drugs ;)', 'width=550,height=380,top=' + (screen.height-380)/2 + ',left=' + (screen.width-550)/2);
 			}
 
 			WarpKlondikeMain.setScores(that.scores);
