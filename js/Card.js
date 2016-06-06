@@ -19,7 +19,7 @@ function Card(cardtype, number, attributes)
 
 	// CSS/Graphics Stuff
 	this.position = {x:0, y:0}
-	this.jQueryElt = jQuery('<div/>');
+	this.jQueryElt = jQuery('<div touch-action="none" />');
 	this.zIndex = 0;
 
 	this.dblclickTimeout = null;

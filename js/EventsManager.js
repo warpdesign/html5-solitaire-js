@@ -11,11 +11,16 @@ var EventsManager = {
 		y:0
 	},
 
-	EVENT_DOWN: CM.isiOS ? 'touchstart' : 'mousedown',
-	EVENT_UP: CM.isiOS ? 'touchend' : 'mouseup',
-	EVENT_MOVE: CM.isiOS ? 'touchmove' : 'mousemove',
-	EVENT_OVER: CM.isiOS ? 'touchstart' : 'mouseover',
-	EVENT_OUT: CM.isiOS ? 'touchstart' : 'mouseout',
+	// EVENT_DOWN: CM.isiOS ? 'touchstart' : 'mousedown',
+	// EVENT_UP: CM.isiOS ? 'touchend' : 'mouseup',
+	// EVENT_MOVE: CM.isiOS ? 'touchmove' : 'mousemove',
+	// EVENT_OVER: CM.isiOS ? 'touchstart' : 'mouseover',
+	// EVENT_OUT: CM.isiOS ? 'touchstart' : 'mouseout',
+	EVENT_DOWN: 'pointerdown',
+	EVENT_UP: 'pointerup',
+	EVENT_MOVE: 'pointermove',
+	EVENT_OVER: 'pointerover',
+	EVENT_OUT: 'pointerout',	
 	EVENT_CHANGE: 'change',
 
 	checkIntersectsInterval: null,
@@ -118,12 +123,12 @@ var EventsManager = {
 
 	preventTouchDefaults: function()
 	{
-		if (CM.isiOS)
-		{
-			jQuery('body').bind(this.EVENT_MOVE + ' ' + this.EVENT_UP + ' ' + this.EVENT_DOWN, function(event){
-				event.preventDefault();
-			});
-		}
+		// if (CM.isiOS)
+		// {
+		// 	jQuery('body').bind(this.EVENT_MOVE + ' ' + this.EVENT_UP + ' ' + this.EVENT_DOWN, function(event){
+		// 		event.preventDefault();
+		// 	});
+		// }
 	},
 
 	init: function()
@@ -191,7 +196,7 @@ var EventsManager = {
 		}, that);
 
 		// only listen for mouse up once
-		$(document).bind(this.EVENT_UP, mouseUpCallback);
+		$('body').bind(this.EVENT_UP, mouseUpCallback);
 
 		var mouseMoveCallback = jQuery.proxy(function(event) {
 			if (!this.draggingElt || !this.draggingElt.dragEnabled)
@@ -221,6 +226,6 @@ var EventsManager = {
 			}
 		}, this);
 
-		$(document).bind(this.EVENT_MOVE, mouseMoveCallback);
+		$('body').bind(this.EVENT_MOVE, mouseMoveCallback);
 	}
 };

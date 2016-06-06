@@ -26,8 +26,9 @@ var CM =
 			this.screenHeight = 768;
 			this.emulator = true;
 			this.trueModelName = '(Device)';
-			this.isiOS = (navigator.userAgent.match(/iPhone|iPod|iPad|PlayBook/) !== null); // ((navigator.userAgent.indexOf("iPhone") != -1) || (navigator.userAgent.indexOf("iPod") != -1) || (navigator.userAgent.indexOf("iPad") != -1));
-			this.isPlaybook = (navigator.userAgent.match(/PlayBook/) !== null);
+			this.isiOS = false; 
+			// (navigator.userAgent.match(/iPhone|iPod|iPad|PlayBook/) !== null); // ((navigator.userAgent.indexOf("iPhone") != -1) || (navigator.userAgent.indexOf("iPod") != -1) || (navigator.userAgent.indexOf("iPad") != -1));
+			// this.isPlaybook = (navigator.userAgent.match(/PlayBook/) !== null);
 		}
 
 		Console.init();
