@@ -45,11 +45,17 @@
 	<script type="text/javascript" src="js/game.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 	<script type="text/javascript">
-		$(function() { WarpKlondikeMain.init() });
+		$(function() {
+			WarpKlondikeMain.init();
+			$('.github-fork-ribbon-wrapper').bind('touchstart', function() {
+				document.location.href = $(this).find('a').attr('href');
+			});	
+		});
 	</script>
 	<link href='http://fonts.googleapis.com/css?family=La+Belle+Aurore&v1' rel='stylesheet' type='text/css'>
 </head>
 <body class="hd" touch-action="none">
+	<div class="github-fork-ribbon-wrapper left-bottom"><div class="github-fork-ribbon"><a href="https://github.com/warpdesign/solitaire-js">Fork me on GitHub</a></div></div>
 	<div class="description">
 	<h2>The HTML5/CSS3 card game</h2> 
 	<ul> 
