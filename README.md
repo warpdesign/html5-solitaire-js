@@ -1,6 +1,8 @@
 solitaire-js
 ============
 
+<img width="956" alt="Capture d’écran 2021-12-03 à 22 39 40" src="https://user-images.githubusercontent.com/199648/144676901-3577ff46-2aa1-4094-9b49-fb2dbbf3c66f.png">
+
 Solitaire JS is an HTML5 game I originally wrote for a contest organized for the launch of the original webOS Palm Pré launch in France: [SFR Jeunes Talents](http://www.generation-nt.com/sfr-jeunes-talents-concours-palm-webos-actualite-959281.html).
 
 Since the game has been written at least 4/5 years ago, don't expect to see a package.json file, nor any .bowerrc: this is pure JavaScript ;)
